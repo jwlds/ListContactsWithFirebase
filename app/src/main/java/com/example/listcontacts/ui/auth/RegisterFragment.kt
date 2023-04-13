@@ -44,6 +44,7 @@ class RegisterFragment : Fragment(), View.OnClickListener{
     private var _binding: FragmentRegisterBinding? = null
     private val binding get() = _binding!!
 
+
     private lateinit var storageReference: StorageReference
     private lateinit var dialog: AlertDialog
 

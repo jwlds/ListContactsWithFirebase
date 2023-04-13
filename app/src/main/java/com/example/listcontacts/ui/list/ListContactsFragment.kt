@@ -9,6 +9,7 @@ import androidx.core.view.isVisible
 import androidx.navigation.fragment.findNavController
 import com.example.listcontacts.R
 import com.example.listcontacts.dao.ContactDao
+import com.example.listcontacts.database.FirebaseDao.Companion.getAuth
 import com.example.listcontacts.databinding.FragmentListBinding
 import com.example.listcontacts.ui.recyclerview.adapter.ListContactsAdapter
 import com.google.firebase.auth.FirebaseAuth
@@ -20,7 +21,6 @@ class ListContactsFragment : Fragment(),View.OnClickListener{
     private var _binding: FragmentListBinding? = null
     private val binding get() = _binding!!
 
-    private lateinit var auth: FirebaseAuth
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
@@ -72,7 +72,7 @@ class ListContactsFragment : Fragment(),View.OnClickListener{
     }
 
     private fun signOut() {
-        auth.signOut()
+        getAuth().signOut()
         findNavController().navigate(R.id.action_listContactsFragment_to_navigation)
     }
 
